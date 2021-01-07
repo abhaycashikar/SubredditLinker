@@ -63,7 +63,7 @@ async def on_message(message: discord.Message):
                     desc = desc[:200] + '...'
                 embed = discord.Embed(
                     title=match,
-                    url='https://reddit.com/r/' + match,
+                    url='https://reddit.com/' + match,
                     description=desc,
                     color=ORANGE)
                 embed.set_thumbnail(url=subreddit.icon_img if subreddit.icon_img else subreddit.community_icon)
@@ -76,7 +76,7 @@ async def on_message(message: discord.Message):
             except prawcore.exceptions.Forbidden:
                 embed = discord.Embed(
                     title=match,
-                    url='https://reddit.com/r/' + match, 
+                    url='https://reddit.com/' + match, 
                     description='Could not fetch details because ' + match + ' is either a private or quarantined subreddit.',
                     color=ORANGE
                 )
