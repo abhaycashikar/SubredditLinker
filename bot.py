@@ -13,6 +13,7 @@ DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
 GUILD = os.getenv('MY_GUILD')
 ORANGE = colour.Color(0xFF4500)
 PFP = 'https://github.com/abhaycashikar/SubredditLinker/raw/main/pfp.png'
+# STATUS_TEXT = 'Tag me for help!'
 FOOTER = 'Found an issue? Tag the bot to get the GitHub link!'
 FOOTER_ICON = 'https://github.com/abhaycashikar/SubredditLinker/raw/main/question_mark.png'
 
@@ -28,6 +29,10 @@ async def on_ready():
     print(f'{client.user} has connected to Discord!')
     guild = discord.utils.get(client.guilds, name=GUILD)
     channel = guild.system_channel
+    # emojis = list(filter(lambda e: e.name == 'question', client.emojis))
+    # activity = discord.CustomActivity(STATUS_TEXT, emoji=emojis[0] if emojis else None)
+    # await client.change_presence(activity=activity)
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="for a mention!"))
     await channel.send('I\'m here!')
 
 @client.event
